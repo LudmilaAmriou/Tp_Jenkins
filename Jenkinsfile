@@ -48,7 +48,7 @@ pipeline {
             echo 'Archiving artifacts...'
             archiveArtifacts artifacts: 'build/libs/*.jar'
             //archiveArtifacts artifacts: 'build/docs/javadoc/**'
-            javadoc javadocDir: 'path/to/javadoc', archiveJavadoc: true
+            //javadoc javadocDir: 'path/to/javadoc', archiveJavadoc: true
             junit(testResults: 'build/reports/tests/test', allowEmptyResults: true)
           }
      }
