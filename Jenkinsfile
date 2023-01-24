@@ -6,14 +6,8 @@ pipeline {
             echo 'Running unit tests...'
             sh './gradlew test'
             junit 'build/test-results/test/TEST-Matrix.xml'
+            archiveartifacts artifacts:'build/libs/**/*.jar', fingerprint: true
         }
     }
   }
-
-   post {
-          always {
-              junit 'build/test-results/**/*.xml'
-              archiveartifacts artifacts:'build/libs/**/*.jar', fingerprint: true
-          }
-      }
 }
