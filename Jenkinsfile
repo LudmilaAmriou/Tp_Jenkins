@@ -1,6 +1,8 @@
 pipeline {
   agent any
   stages {
+
+
     stage('Test') {
         steps {
             echo 'Running unit tests...'
@@ -15,6 +17,8 @@ pipeline {
                        trendsLimit: 10
         }
     }
+
+
     stage('Code Analysis') {
         steps {
             echo 'Running gradle sonar'
@@ -23,7 +27,13 @@ pipeline {
             }
         }
     }
+
+    stage("Code Quality") {
+        steps {
+            timeout(time: 1, unit: 'HOURS') {
+                waitForQualityGate abortPipeline: true
+            }
+        }
+    }
   }
-
-
 }
