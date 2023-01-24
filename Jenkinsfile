@@ -7,7 +7,7 @@ pipeline {
             sh './gradlew test'
             junit 'build/test-results/test/TEST-Matrix.xml'
             echo 'Archiving artifacts...'
-            archiveArtifact 'build/test-results/**/*'
+            archiveArtifact 'home/ludmila/.jenkins/workspace/TP_Jenkins_main/build/test-results/**/*'
         }
     }
   }
