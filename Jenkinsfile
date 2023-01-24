@@ -44,7 +44,7 @@ pipeline {
           steps {
             echo 'Generation .jar and Documentation...'
             sh './gradlew build'
-            sh './javadoc -d javadoc -sourcepath src -subpackages com.example'
+            sh './gradle javadoc'
             echo 'Archiving artifacts...'
             archiveArtifacts artifacts: 'build/libs/*.jar'
             //archiveArtifacts artifacts: 'build/docs/javadoc/**'
