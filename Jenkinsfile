@@ -10,7 +10,7 @@ pipeline {
             archiveArtifacts 'build/test-results/**/*'
             echo 'Generation Cucumber report'
             sh './gradlew cucumber'
-            archiveArtifacts 'build/cucumber-html-reports/**/*'
+             archiveArtifacts 'build/cucumber-html-reports/**/*'
         }
     }
   }
