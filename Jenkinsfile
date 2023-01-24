@@ -14,6 +14,7 @@ pipeline {
                        fileIncludePattern: 'target/report.json',
                        trendsLimit: 10
         }
+
     }
   }
 }
