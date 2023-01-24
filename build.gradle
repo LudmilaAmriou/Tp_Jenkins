@@ -7,6 +7,14 @@ plugins {
 
 }
 
+cucumber {
+    jvm {
+        options {
+            format = ['html:build/cucumber-html-reports']
+        }
+    }
+}
+
 group 'com.example'
 version '1.0'
 
