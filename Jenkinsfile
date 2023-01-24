@@ -9,12 +9,10 @@ pipeline {
             echo 'Archiving artifacts...'
             archiveArtifacts 'build/test-results/**/*'
             echo 'Generation Cucumber report'
-            sh './gradlew cucumber'
-            archiveArtifacts 'build/reports/cucumber/**/*'
-           // cucumber buildStatus: 'UNSTABLE',
-              //  reportTitle: 'My report',
-               // fileIncludePattern: '**/*.json',
-               // trendsLimit: 10
+            cucumber buildStatus: 'UNSTABLE',
+                reportTitle: 'My report',
+                fileIncludePattern: '**/*.json',
+                trendsLimit: 10
 
         }
     }
