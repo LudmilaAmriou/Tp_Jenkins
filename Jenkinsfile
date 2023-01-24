@@ -10,9 +10,9 @@ pipeline {
             archiveArtifacts 'build/test-results/**/*'
             echo 'Generation Cucumber report'
             cucumber buildStatus: 'UNSTABLE',
-                     reportTitle: 'My report',
-                     fileIncludePattern: 'target/report.json',
-                     trendsLimit: 10
+                reportTitle: 'My report',
+                fileIncludePattern: '**/*.json',
+                trendsLimit: 10,
 
         }
     }
