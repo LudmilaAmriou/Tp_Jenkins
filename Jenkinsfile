@@ -44,10 +44,10 @@ pipeline {
           steps {
             echo 'Generation .jar and Documentation...'
             sh './gradlew build'
-            sh './gradlew javadoc'
+            sh './javadoc -d javadoc -sourcepath src -subpackages com.example'
             echo 'Archiving artifacts...'
             archiveArtifacts artifacts: 'build/libs/*.jar'
-            archiveArtifacts artifacts: 'build/docs/javadoc/**'
+            //archiveArtifacts artifacts: 'build/docs/javadoc/**'
             javadoc javadocDir: 'path/to/javadoc', archiveJavadoc: true
             junit(testResults: 'build/reports/tests/test', allowEmptyResults: true)
           }
