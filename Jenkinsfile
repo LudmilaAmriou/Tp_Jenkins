@@ -37,5 +37,18 @@ pipeline {
             }
         }
     }
+
+
+
+     stage('Build') {
+          steps {
+            echo 'Generation .jar and Documentation...'
+            sh(script: 'gradle build', label: 'gradle build')
+            sh './gradlew javadoc'
+            echo 'Archiving artifacts...'
+            archiveArtifacts 'build/libs/*.jar'
+            junit(testResults: 'build/reports/tests/test', allowEmptyResults: true)
+          }
+     }
   }
 }
