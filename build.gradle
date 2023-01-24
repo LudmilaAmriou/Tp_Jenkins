@@ -37,7 +37,9 @@ publishing {
 
 
 
-
+javadoc {
+    destinationDir = file("build/docs/javadoc")
+}
 
 
 
