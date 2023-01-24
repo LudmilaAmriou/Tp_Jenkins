@@ -47,8 +47,7 @@ pipeline {
             sh './gradlew javadoc'
             echo 'Archiving artifacts...'
             archiveArtifacts artifacts: 'build/libs/*.jar'
-            //archiveArtifacts artifacts: 'build/docs/javadoc/**'
-            //javadoc javadocDir: 'path/to/javadoc', archiveJavadoc: true
+            archiveArtifacts artifacts: 'build/docs/javadoc/**'
             junit(testResults: 'build/reports/tests/test', allowEmptyResults: true)
           }
      }
