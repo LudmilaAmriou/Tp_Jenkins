@@ -9,8 +9,9 @@ pipeline {
             echo 'Archiving artifacts...'
             archiveArtifacts 'build/test-results/**/*'
             echo 'Generation Cucumber report'
-            sh './gradlew cucumberHtmlReport'
+            sh './gradlew cucumber'
             archiveArtifacts 'build/cucumber-html-reports/**/*'
+
         }
     }
   }
