@@ -1,19 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('build'){
-        steps{
-          sh 'gradle build'
-
+    stage('Test') {
+        steps {
+            echo 'Running unit tests...'
+            sh './gradlew test'
+            archiveArtifacts '**/src/test/java/*'
         }
-    }
-
-    stage('test'){
-       steps{
-
-         sh 'gradle test'
-
-       }
     }
   }
 }
