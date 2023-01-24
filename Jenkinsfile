@@ -14,7 +14,16 @@ pipeline {
                        fileIncludePattern: 'target/report.json',
                        trendsLimit: 10
         }
-
+    }
+    stage('Code Analysis') {
+        steps {
+            echo 'Running gradle sonar'
+            withSonarQubeEnv('sonar') {
+              sh 'gradle sonar'
+            }
+        }
     }
   }
+
+
 }
