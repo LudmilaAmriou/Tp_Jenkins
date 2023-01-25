@@ -54,8 +54,20 @@ pipeline {
 
      stage('Deploy') {
         steps {
+            echo "Deployment..."
             sh './gradlew publish'
         }
+     }
+
+     stage('Send Email') {
+         steps {
+             email (
+                 to: 'jl_amriou@esi.dz',
+                 subject: 'Jenkins build status',
+                 body: 'Your build has completed!',
+                 mimeType: 'text/html'
+             )
+         }
      }
   }
 }
