@@ -77,7 +77,7 @@ pipeline {
         mail(subject: 'Build Succeeded', body: 'the new Build is deployed with success!', from: 'jl_amriou@esi.dz', to: 'jl_amriou@esi.dz')
     }
     failure {
-        mail(subject: 'Build Failed', body: "the new build deployement failed!", from: 'jl_amriou@esi.dz', to: 'jl_amriou@esi.dz')
+        mail(subject: 'Build Failed', body: "the new Build deployement failed!", from: 'jl_amriou@esi.dz', to: 'jl_amriou@esi.dz')
     }
   }
 }
