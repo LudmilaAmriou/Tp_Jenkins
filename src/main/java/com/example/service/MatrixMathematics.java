@@ -119,7 +119,9 @@ public class MatrixMathematics {
 		if (determinant(matrix) == 0){
 			return null;
 		}
-		return (transpose(cofactor(matrix)).multiplyByConstant(1.0/determinant(matrix)));
+		else {
+			return (transpose(cofactor(matrix)).multiplyByConstant(1.0 / determinant(matrix)));
+		}
 	}
 
 
