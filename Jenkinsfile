@@ -66,6 +66,11 @@ pipeline {
         steps {
             echo "Notification..."
             notifyEvents message: 'Build is created with success', token: '9PH9uY_Tx3WQb3LF3Ka_Y_nZG4EwpXEg'
+            notify(
+                message: 'Build completed successfully!',
+                service: 'Signal',
+                group: 'Jenkins',
+                )
 
         }
     }
@@ -82,7 +87,6 @@ pipeline {
         mail to: "jl_amriou@esi.dz",
         subject: "Build failed",
         body: "This is an email that informs that the new Build is deployed with failure!"
-
     }
   }
 }
