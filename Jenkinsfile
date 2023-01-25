@@ -73,10 +73,11 @@ pipeline {
 
 
   post {
-         failure {
-            notifyEvents message: 'New build faileddddd.', token: 'OlLQTQZ1_Wu3rvYmweXCHmbcu3DIJVYK'
-         }
-
-
+    success {
+        mail(subject: 'Build Succeeded', body: 'New Build is deployed with success!', from: 'jl_amriou@esi.dz', to: 'jl_amriou@esi.dz')
+    }
+    failure {
+        mail(subject: 'Build Failed', body: "the new build deployement failed!", from: 'jl_amriou@esi.dz', to: 'jl_amriou@esi.dz')
+    }
   }
 }
