@@ -22,7 +22,7 @@ publishing {
         maven {
             url System.getenv("url")
             credentials {
-                username System.getenv("username")
+                username System.getenv("USERNAME")
                 password System.getenv("password")
             }
         }
