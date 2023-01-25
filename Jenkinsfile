@@ -54,6 +54,7 @@ pipeline {
 
      stage('Deploy') {
         steps {
+            sh 'printenv'
             sh './gradlew publish'
         }
      }
