@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.example.exception.NoSquareException;
 import com.example.model.Matrix;
+import org.graalvm.compiler.hotspot.stubs.DivisionByZeroExceptionStub;
 
 public class MatrixMathematics {
 
@@ -115,6 +116,9 @@ public class MatrixMathematics {
 	 * @throws NoSquareException
 	 */
 	public static Matrix inverse(Matrix matrix) throws NoSquareException {
+		if (determinant(matrix) == 0){
+			return null;
+		}
 		return (transpose(cofactor(matrix)).multiplyByConstant(1.0/determinant(matrix)));
 	}
 
