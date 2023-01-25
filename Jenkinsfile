@@ -65,7 +65,8 @@ pipeline {
     stage('Notify') {
         steps {
             echo "Notification..."
-            notifyEvents message: 'Build is created with success', token: '9PH9uY_Tx3WQb3LF3Ka_Y_nZG4EwpXEg', group: Jenkins
+            notifyEvents message: 'Build is created with success', token: '9PH9uY_Tx3WQb3LF3Ka_Y_nZG4EwpXEg'
+            notifyEvents message: 'Build is created with success', service: 'signal', group:'Jenkins'
         }
     }
   }
