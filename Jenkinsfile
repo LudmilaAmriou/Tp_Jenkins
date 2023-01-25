@@ -59,15 +59,24 @@ pipeline {
         }
      }
 
-     stage('Send Email') {
-         steps {
-             email (
-                 to: 'jl_amriou@esi.dz',
-                 subject: 'Jenkins build status',
-                 body: 'Your build has completed!',
-                 mimeType: 'text/html'
-             )
+
+
+
+    stage('Notify') {
+        steps {
+            echo "Notification..."
+            notifyEvents message: 'Build is created with success', token: '9PH9uY_Tx3WQb3LF3Ka_Y_nZG4EwpXEg'
+
+        }
+    }
+  }
+
+
+  post {
+         failure {
+            notifyEvents message: 'New build faileddddd.', token: 'OlLQTQZ1_Wu3rvYmweXCHmbcu3DIJVYK'
          }
-     }
+
+
   }
 }
