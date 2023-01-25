@@ -55,7 +55,6 @@ pipeline {
      stage('Deploy') {
         steps {
             env username=myMavenRepo
-            printenv | grep username
             sh './gradlew publish'
         }
      }
